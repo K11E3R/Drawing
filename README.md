@@ -40,8 +40,11 @@ This Rust project demonstrates how to draw various geometrical shapes using the 
 - `raster`: A 2D graphics library for Rust used to handle images and pixel manipulation.
 - `rand`: Provides random number generation capabilities.
 
+
 ## Author
 
+- GitHub: [k11e3r](https://github.com/k11e3r)
+- Email: prs.online.00@gmail.com
 
 ## Contributing
 
@@ -50,4 +53,4 @@ Contributions are welcome! If you find any bugs or want to add more shapes or fe
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the  [MIT License](LICENSE) file for details.
