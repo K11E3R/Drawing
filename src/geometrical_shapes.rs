@@ -1,16 +1,16 @@
-
-use raster::{Color, Image};
 use rand::Rng;
-
+use raster::{Color, Image};
 
 pub trait Displayable {
     fn display(&mut self, x: i32, y: i32, color: Color);
 }
 
-// definition des fonctions de bases 
+// definition des fonctions de bases
+// l'algorithme de Bresenham pour dessiner une ligne
 pub fn make_line(l: &Line, img: &mut Image, color: &Color) {
     let x0 = l.a.x;
     let y0 = l.a.y;
+
     let x1 = l.b.x;
     let y1 = l.b.y;
 
@@ -29,20 +29,34 @@ pub fn make_line(l: &Line, img: &mut Image, color: &Color) {
     loop {
         img.display(x0, y0, color.clone());
 
-        if x0 == x1 && y0 == y1 { break };
+        if x0 == x1 && y0 == y1 {
+            break;
+        };
 
         err2 = 2 * err;
 
-        if err2 > -dx { err -= dy; x0 += sx; }
-        if err2 < dy { err += dx; y0 += sy; }
+        if err2 > -dx {
+            err -= dy;
+            x0 += sx;
+        }
+        if err2 < dy {
+            err += dx;
+            y0 += sy;
+        }
     }
 }
+// fonction de base les couleurs
 pub fn color(r: u8, g: u8, b: u8) -> Color {
     let mut rng = rand::thread_rng();
     let r1 = rng.gen_range(0..=r);
     let g1 = rng.gen_range(0..=g);
     let b1 = rng.gen_range(0..=b);
-    Color { r: r1, g: g1, b: b1, a: 255 }
+    Color {
+        r: r1,
+        g: g1,
+        b: b1,
+        a: 255,
+    }
 }
 
 // definition des structures
@@ -51,6 +65,18 @@ pub struct Point {
     x: i32,
     y: i32,
 }
+
+#[allow(dead_code)]
+impl Point {
+    pub fn x(&self) -> i32 {
+        self.x
+    }
+    pub fn y(&self) -> i32 {
+        self.y
+    }
+}
+
+
 pub struct Line {
     a: Point,
     b: Point,
@@ -88,6 +114,7 @@ impl Point {
         let y = rng.gen_range(0..max_height);
         Point { x, y }
     }
+    #[allow(dead_code)]
     pub fn draw(&self, img: &mut Image) {
         if self.x < img.width && self.y < img.height && self.x >= 0 && self.y >= 0 {
             let color = color(255, 255, 255);
@@ -115,12 +142,25 @@ impl Line {
 // def du Triangle
 impl Triangle {
     pub fn new(a: &Point, b: &Point, c: &Point) -> Self {
-        Self { a: *a, b: *b, c: *c }
+        Self {
+            a: *a,
+            b: *b,
+            c: *c,
+        }
     }
     pub fn draw(&self, img: &mut Image) {
-        let l1 = Line { a: self.a, b: self.b };
-        let l2 = Line { a: self.b, b: self.c };
-        let l3 = Line { a: self.c, b: self.a };
+        let l1 = Line {
+            a: self.a,
+            b: self.b,
+        };
+        let l2 = Line {
+            a: self.b,
+            b: self.c,
+        };
+        let l3 = Line {
+            a: self.c,
+            b: self.a,
+        };
         let color: Color = color(255, 255, 255);
         make_line(&l1, img, &color);
         make_line(&l2, img, &color);
@@ -136,10 +176,22 @@ impl Rectangle {
         Rectangle { a: *a, b: *b, c, d }
     }
     pub fn draw(&self, img: &mut Image) {
-        let l1 = Line { a: self.a, b: self.d };
-        let l2 = Line { a: self.d, b: self.b };
-        let l3 = Line { a: self.b, b: self.c };
-        let l4 = Line { a: self.c, b: self.a };
+        let l1 = Line {
+            a: self.a,
+            b: self.d,
+        };
+        let l2 = Line {
+            a: self.d,
+            b: self.b,
+        };
+        let l3 = Line {
+            a: self.b,
+            b: self.c,
+        };
+        let l4 = Line {
+            a: self.c,
+            b: self.a,
+        };
         let color: Color = color(255, 255, 255);
         make_line(&l1, img, &color);
         make_line(&l2, img, &color);
@@ -151,10 +203,7 @@ impl Rectangle {
 // def du Circle
 impl Circle {
     pub fn _new(c: &Point, radius: i32) -> Self {
-        Self {
-            center: *c,
-            radius,
-        }
+        Self { center: *c, radius }
     }
 
     pub fn drawoffset(img: &mut Image, xc: i32, yc: i32, x: i32, y: i32, color: &Color) {
@@ -185,10 +234,7 @@ impl Circle {
         } else {
             radius = rng.gen_range(2..dif);
         }
-        Circle {
-            center,
-            radius,
-        }
+        Circle { center, radius }
     }
 
     pub fn draw(&self, img: &mut Image) {
@@ -235,7 +281,16 @@ impl Pentagon {
 
 // def du Cube
 impl Cube {
-    pub fn new(p1: &Point, p2: &Point, p3: &Point, p4: &Point, p5: &Point, p6: &Point, p7: &Point, p8: &Point) -> Self {
+    pub fn new(
+        p1: &Point,
+        p2: &Point,
+        p3: &Point,
+        p4: &Point,
+        p5: &Point,
+        p6: &Point,
+        p7: &Point,
+        p8: &Point,
+    ) -> Self {
         Cube {
             vertices: [*p1, *p2, *p3, *p4, *p5, *p6, *p7, *p8],
         }

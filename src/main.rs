@@ -1,9 +1,8 @@
 mod geometrical_shapes;
 
 use geometrical_shapes as gs;
-use gs::{Displayable};
+use gs::Displayable;
 use raster::{Color, Image};
-
 
 impl Displayable for Image {
     fn display(&mut self, x: i32, y: i32, color: Color) {
@@ -13,14 +12,12 @@ impl Displayable for Image {
     }
 }
 
-
 fn main() {
-
     let mut image = Image::blank(1000, 1000);
 
-    /*tout les definitions des formes se fait avec 
+    /*tout les definitions des formes se fait avec
     une methode random pour generer des formes aleatoires*/
-    
+
     // definition d un point
     let p = gs::Point::random(image.width, image.height);
     // definition deux points pour une ligne
@@ -50,20 +47,19 @@ fn main() {
     let p7 = gs::Point::new(350, 650);
     let p8 = gs::Point::new(250, 650);
     let cube = gs::Cube::new(&p1, &p2, &p3, &p4, &p5, &p6, &p7, &p8);
-    
-    // dessiner les formes 
+
+    // dessiner les formes
     p.draw(&mut image);
     l.draw(&mut image);
     rectangle.draw(&mut image);
     pentagon.draw(&mut image);
     triangle.draw(&mut image);
     cube.draw(&mut image);
-    for _ in 1..50{
-        let c  = gs::Circle::random(image.width, image.height);
+    for _ in 1..50 {
+        let c = gs::Circle::random(image.width, image.height);
         c.draw(&mut image);
     }
 
     // sauvegarder l image dans image.png
     raster::save(&image, "image.png").unwrap();
-
 }

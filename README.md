@@ -1,4 +1,4 @@
-*# Geometrical Shapes Drawing
+# Geometrical Shapes Drawing
 
 
 This Rust project demonstrates how to draw various geometrical shapes using the `raster` crate. The shapes include points, lines, triangles, rectangles, circles, pentagons, and cubes.
@@ -18,7 +18,7 @@ This Rust project demonstrates how to draw various geometrical shapes using the 
 1. Clone the repository:
 
    ```bash
-   git clone https://zone01normandie.org/git/yasnaanani/drawing
+   git clone https://github.com/K11E3R/drawing.git
    cd geometrical_shapes
    ```
 
@@ -40,8 +40,11 @@ This Rust project demonstrates how to draw various geometrical shapes using the 
 - `raster`: A 2D graphics library for Rust used to handle images and pixel manipulation.
 - `rand`: Provides random number generation capabilities.
 
+
 ## Author
 
+- Author: Yassine Naanani [@K11E3R](https://github.com/k11e3r)
+- Email: prs.online.00@gmail.com
 
 ## Contributing
 
@@ -50,4 +53,4 @@ Contributions are welcome! If you find any bugs or want to add more shapes or fe
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the  [MIT License](LICENSE) file for details.
