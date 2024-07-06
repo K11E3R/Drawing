@@ -9,10 +9,6 @@ raster = "0.2.0"
 rand = "0.8.5"
 
 [[test]]
-<<<<<<< HEAD
 
-name = "shape_color_test"
-=======
-name = "test_geometrical_shapes"
->>>>>>> 5d3c4bf279ee25186971c6908200034486831bd3
+name = "shape_color"
 path = "src/test.rs"
