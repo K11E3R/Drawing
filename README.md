@@ -18,7 +18,7 @@ This Rust project demonstrates how to draw various geometrical shapes using the 
 1. Clone the repository:
 
    ```bash
-   git clone https://zone01normandie.org/git/yasnaanani/drawing
+   git clone https://github.com/K11E3R/drawing.git
    cd geometrical_shapes
    ```
 
