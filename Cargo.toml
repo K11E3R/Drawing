@@ -1,9 +1,13 @@
 [package]
 name = "drawing"
 version = "0.1.0"
+authors = ["K11E3R prs.online.00@gmail.com"]
 edition = "2021"
 
 [dependencies]
-
 raster = "0.2.0"
-rand = "0.8.4"
+rand = "0.8.5"
+
+[[test]]
+name = "test_geometrical_shapes"
+path = "src/test.rs"
