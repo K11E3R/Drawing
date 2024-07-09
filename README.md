@@ -71,5 +71,4 @@ Contributions are welcome! If you find any bugs or want to add more shapes or fe
 This project is licensed under the MIT License. See the  [MIT License](LICENSE) file for details.
 
 <br>
-
-_<center> Enjoy  </center>_
+<p align="center"><i>Enjoy</i></p>
