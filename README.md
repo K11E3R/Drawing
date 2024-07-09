@@ -13,6 +13,21 @@ This Rust project demonstrates how to draw various geometrical shapes using the 
 - **Pentagon**: Draws a regular pentagon centered at a point with a specified radius.
 - **Cube**: Draws a 2D representation of a cube.
 
+## Docker
+
+To build and run the application using Docker, follow these steps:
+
+1. Build the Docker image:
+   ```sh
+   docker build -t rust-drawing-app .
+   ```
+
+2. Run the Docker container:
+   ```sh
+   docker run --rm -v $(pwd):/usr/src/app rust-drawing-app
+   ```
+
+
 ## Usage
 
 1. Clone the repository:
@@ -54,3 +69,7 @@ Contributions are welcome! If you find any bugs or want to add more shapes or fe
 ## License
 
 This project is licensed under the MIT License. See the  [MIT License](LICENSE) file for details.
+
+<br>
+
+_<center> Enjoy  </center>_
